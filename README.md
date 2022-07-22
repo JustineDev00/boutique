@@ -1,3 +1,3 @@
 # boutique
 
-Structure du projet
+E0 - Structure du projet
