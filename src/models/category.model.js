@@ -1,3 +1,4 @@
+import { DataManager } from "../helpers/dataManager.helper";
 
 export class Category{
 
@@ -13,6 +14,11 @@ export class Category{
             }
         }
         Object.assign(this, props);
+    }
+
+    getProductList(){
+        const dataManager = new DataManager();
+        return dataManager.getAll("product").filter(product => product.category_id == this.id);
     }
 
 }

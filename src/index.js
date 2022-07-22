@@ -27,4 +27,8 @@ console.log("get product 2", product_2);
 
 //Test de getCategory (classe Product)
 const categoryOfProduct_2 = product_2.getCategory();
-console.log("get category od product 2", categoryOfProduct_2);
+console.log("get category of product 2", categoryOfProduct_2);
+
+//Test de getProductList (classe Category)
+const allProductsOfCategory_2 = category_2.getProductList();
+console.log("get all products of category 2", allProductsOfCategory_2);
