@@ -1,3 +1,4 @@
+import { DataManager } from "../helpers/dataManager.helper";
 
 export class Product{
 
@@ -16,6 +17,11 @@ export class Product{
             }
         }
         Object.assign(this, props);
+    }
+
+    getCategory(){
+        const dataManager = new DataManager();
+        return dataManager.getOne("category", this.category_id);
     }
 
 }

@@ -5,7 +5,7 @@ import { Product } from "./models/product.model";
 const dataManager = new DataManager(['category', 'product']);
 // dataManager.initDataStorage();
 
-//Tests des constructeurs des classe models
+//Tests des constructeurs des classes models
 const categoryJsonData = {"id":1,"title":"vestibulum ante","description":"Mauris ullamcorper purus sit amet nulla.","image":"https://picsum.photos/1001/600/400"};
 const category_1 = new Category(categoryJsonData);
 console.log("constructeur Category", category_1);
@@ -25,3 +25,6 @@ console.log("get category 2", category_2);
 const product_2 = dataManager.getOne("product", 2);
 console.log("get product 2", product_2);
 
+//Test de getCategory (classe Product)
+const categoryOfProduct_2 = product_2.getCategory();
+console.log("get category od product 2", categoryOfProduct_2);
