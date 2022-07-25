@@ -1,8 +1,8 @@
 import { DataManager } from "../helpers/dataManager.helper";
+import { BaseModel } from "./baseModel.model";
 
-export class Product{
+export class Product extends BaseModel{
 
-    id = -1;
     title = "";
     description = ""; 
     image = ""; 
@@ -10,24 +10,13 @@ export class Product{
     category_id = -1;
 
     constructor(props){
-        for(const key in props){ 
-            if(!this.hasOwnProperty(key)){
-                delete props[key];
-            }
-        }
-        Object.assign(this, props);
+        super(props);
+        this.assign(props);
     }
 
     getCategory(){
         const dataManager = new DataManager();
         return dataManager.getOne("category", this.category_id);
     }
-
-    setProp(key, value){
-        if(key == "id") return this; //pour interdire la modification de l'id
-        this[key] = value;
-        return this; //pour permettre le chainage des méthodes sur l'objet
-    }
-
 
 }
