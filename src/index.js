@@ -34,9 +34,9 @@ const allProductsOfCategory_2 = category_2.getProductList();
 console.log("get all products of category 2", allProductsOfCategory_2);
 
 
-category_2.setProp("title", "un autre nouveau titre 2")
-    .setProp("description", "smjfdghsdjf")
-
+//Test des méthode setProp des modèles (Category, Product) + méthode update de DataManager
+category_2.setProp("title", "un nouveau titre")
+    .setProp("description", "une nouvelle description")
 
 dataManager.update(category_2);
 

@@ -24,9 +24,9 @@ export class Product{
     }
 
     setProp(key, value){
-        if(key == "id") return this;
+        if(key == "id") return this; //pour interdire la modification de l'id
         this[key] = value;
-        return this
+        return this; //pour permettre le chainage des méthodes sur l'objet
     }
 
 
