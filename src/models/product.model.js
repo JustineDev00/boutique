@@ -9,7 +9,6 @@ export class Product{
     price = -1;
     category_id = -1;
 
-
     constructor(props){
         for(const key in props){ 
             if(!this.hasOwnProperty(key)){
@@ -23,5 +22,12 @@ export class Product{
         const dataManager = new DataManager();
         return dataManager.getOne("category", this.category_id);
     }
+
+    setProp(key, value){
+        if(key == "id") return this;
+        this[key] = value;
+        return this
+    }
+
 
 }

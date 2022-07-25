@@ -21,4 +21,10 @@ export class Category{
         return dataManager.getAll("product").filter(product => product.category_id == this.id);
     }
 
+    setProp(key, value){
+        if(key == "id") return this;
+        this[key] = value;
+        return this
+    }
+
 }

@@ -32,3 +32,15 @@ console.log("get category of product 2", categoryOfProduct_2);
 //Test de getProductList (classe Category)
 const allProductsOfCategory_2 = category_2.getProductList();
 console.log("get all products of category 2", allProductsOfCategory_2);
+
+
+category_2.setProp("title", "un autre nouveau titre 2")
+    .setProp("description", "smjfdghsdjf")
+
+
+dataManager.update(category_2);
+
+product_2.setProp("price", 10);
+dataManager.update(product_2);
+
+console.log();

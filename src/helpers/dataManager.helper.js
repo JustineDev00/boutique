@@ -57,6 +57,17 @@ export class DataManager{
                 return new Product(row);
         }
     }
+
+    update(model){
+        const table = model.constructor.name.toLowerCase();
+        const data = JSON.parse(localStorage.getItem('data')); //Je récupère toutes les données
+        const dataTable = data[table + "Data"]; ///Je récupère la table dont j'ai besoin
+        let row = dataTable?.find(item => item.id == model.id); //Je récupère la ligne qui m'interesse (id)
+        for(const key in row){ //Je mets à jour la ligne
+            row[key] = model[key]
+        }
+        localStorage.setItem("data", JSON.stringify(data)); //Je sauvegarde les données en localStorage
+    }
   
 
 } 
