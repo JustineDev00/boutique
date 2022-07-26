@@ -59,7 +59,7 @@ export class DataManager{
     }
 
     update(model){
-        const table = model.constructor.name.toLowerCase();
+        const table = model.constructor.name.toLowerCase(); //Je récupère le nom de la table correspondant à l'objet
         const data = JSON.parse(localStorage.getItem('data')); //Je récupère toutes les données
         const dataTable = data[table + "Data"]; ///Je récupère la table dont j'ai besoin
         let row = dataTable?.find(item => item.id == model.id); //Je récupère la ligne qui m'intéresse (grace à l'id)
@@ -67,7 +67,10 @@ export class DataManager{
             row[key] = model[key]
         }
         localStorage.setItem("data", JSON.stringify(data)); //Je sauvegarde les données en localStorage
+        console.log("data row updated", model);
     }
+
+
   
 
 } 

@@ -14,6 +14,7 @@ export class BaseModel{
     setProp(key, value){
         if(key == "id") return this; //pour interdire la modification de l'id
         this[key] = value;
+        console.log("object prop updated", this);
         return this; //pour permettre le chainage des méthodes sur l'objet
     }
 
