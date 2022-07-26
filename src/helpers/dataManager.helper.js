@@ -59,15 +59,17 @@ export class DataManager{
     }
 
     update(model){
-        const table = model.constructor.name.toLowerCase(); //Je récupère le nom de la table correspondant à l'objet
+
         const data = JSON.parse(localStorage.getItem('data')); //Je récupère toutes les données
+        const table = model.constructor.name.toLowerCase(); //Je récupère le nom de la table correspondant à l'objet
         const dataTable = data[table + "Data"]; ///Je récupère la table dont j'ai besoin
         let row = dataTable?.find(item => item.id == model.id); //Je récupère la ligne qui m'intéresse (grace à l'id)
-        for(const key in row){ //Je mets à jour la ligne
-            row[key] = model[key]
-        }
+        // for(const key in row){ //Je mets à jour la ligne
+        //     row[key] = model[key]
+        // }
+        Object.assign(row, model);
         localStorage.setItem("data", JSON.stringify(data)); //Je sauvegarde les données en localStorage
-        console.log("data row updated", model);
+        console.log(model.constructor.name + " data row updated", model);
     }
 
 
