@@ -1,3 +1,3 @@
 # boutique
 
-E4 avec héritage (classe BaseModel) + embryon de SPA (classe App.js) 
+E4 avec create et delete dans DataManager 
