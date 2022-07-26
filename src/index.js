@@ -1,13 +1,13 @@
-// import {App} from './App.js';
+import {App} from './App.js';
 
-// const app = new App();
-// app.start();
+const app = new App();
+app.start();
 
-// import { DataManager } from "./helpers/dataManager.helper";
-// import { Category } from "./models/category.model";
-// import { Product } from "./models/product.model";
+import { DataManager } from "./helpers/dataManager.helper";
+import { Category } from "./models/category.model";
+import { Product } from "./models/product.model";
 
-// const dataManager = new DataManager(['category', 'product']);
+const dataManager = new DataManager(['category', 'product']);
 // // dataManager.initDataStorage();
 
 // //Tests des constructeurs des classes models
@@ -45,9 +45,20 @@
 
 // dataManager.update(category_2);
 
-// product_2.setProp("price", 10);
+// product_2.setProp("price", 20);
 // dataManager.update(product_2);
 
-// console.log();
+// //Tests de la méthode insert de DataManager
+// const newCategory = new Category({title:"En promo", description:"Tous les articles en promo", image:"https://picsum.photos/1010/600/400"})
+// dataManager.insert(newCategory);
+// const newProduct = new Product({title:"Nouveau", description:"nouveau produit", image:"https://picsum.photos/1010/600/400", price:199.99, category_id:2})
+// dataManager.insert(newProduct);
 
 
+// //Tests de la méthode delete de DataManager
+// const product_181 = dataManager.getOne("product", 181);
+// dataManager.delete(product_181);
+// const category_10 = dataManager.getOne("category", 10);
+// dataManager.delete(category_10);
+
+console.log();

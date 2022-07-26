@@ -26,6 +26,7 @@ export class App {
     }
 
     pushRouteToHistory = (route) => { //permet d'ajouter une route dans l'historique
+        if(route == history.state?.route) return; //si la dernière entrée dans l'historique est la même inutile de l'ajouter
         console.log("pushRouteToHistory", route);
         history.pushState({
             route
@@ -40,9 +41,9 @@ export class App {
             link.onclick = (evt) => {
                 evt.preventDefault();
                 console.log("link.onclick");
-                const route = evt.target.pathname;
-                this.pushRouteToHistory(route);
-                this.navigateToRoute(route);
+                const href = evt.target.pathname;
+                this.pushRouteToHistory(href);
+                this.navigateToRoute(href);
             }
         }
     }

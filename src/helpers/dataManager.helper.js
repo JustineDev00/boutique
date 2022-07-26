@@ -62,7 +62,7 @@ export class DataManager{
 
         const data = JSON.parse(localStorage.getItem('data')); //Je récupère toutes les données
         const table = model.constructor.name.toLowerCase(); //Je récupère le nom de la table correspondant à l'objet
-        const dataTable = data[table + "Data"]; ///Je récupère la table dont j'ai besoin
+        const dataTable = data[table + "Data"]; //Je récupère la table dont j'ai besoin
         let row = dataTable?.find(item => item.id == model.id); //Je récupère la ligne qui m'intéresse (grace à l'id)
         // for(const key in row){ //Je mets à jour la ligne
         //     row[key] = model[key]
@@ -70,6 +70,30 @@ export class DataManager{
         Object.assign(row, model);
         localStorage.setItem("data", JSON.stringify(data)); //Je sauvegarde les données en localStorage
         console.log(model.constructor.name + " data row updated", model);
+    }
+
+
+    insert(model){
+        const data = JSON.parse(localStorage.getItem('data')); //Je récupère toutes les données
+        const table = model.constructor.name.toLowerCase(); //Je récupère le nom de la table correspondant à l'objet
+        const dataTable = data[table + "Data"]; //Je récupère la table dont j'ai besoin
+        const maxId = Math.max(...dataTable.map(obj => obj.id)); //Je récupère l'id max de la table
+        model.id = maxId + 1; //Je met à jour l'id de l'objet à ajouter
+        dataTable.push(model); //J'ajoute l'objet dans la table
+        localStorage.setItem("data", JSON.stringify(data)); //Je sauvegarde les données en localStorage
+        console.log(model.constructor.name + " data row inserted", model);
+    }
+
+    delete(model){ //version hard
+        const data = JSON.parse(localStorage.getItem('data')); //Je récupère toutes les données
+        const table = model.constructor.name.toLowerCase(); //Je récupère le nom de la table correspondant à l'objet
+        let dataTable = data[table + "Data"]; //Je récupère la table dont j'ai besoin
+        const indexOfObject = dataTable.findIndex(object => { //Je récupère l'index du model dans la table
+            return object.id === model.id;
+        });
+        dataTable.splice(indexOfObject, 1); //Je supprime la ligne correspondante à l'index du model de la table
+        localStorage.setItem("data", JSON.stringify(data)); //Je sauvegarde les données en localStorage
+        console.log(model.constructor.name + " data row deleted", model);
     }
 
 
