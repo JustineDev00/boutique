@@ -25,14 +25,14 @@ export class App {
 
     }
 
-    pushRouteToHistory = (route) => {
+    pushRouteToHistory = (route) => { //permet d'ajouter une route dans l'historique
         console.log("pushRouteToHistory", route);
         history.pushState({
             route
         }, null, route);
     }
 
-    navigateToRoute = (route) => {
+    navigateToRoute = (route) => { //permet d'afficher le contenu de la page demandée
         console.log("navigateToRoute", route);
         //Prochaine étape : aller chercher un controller ...
 
