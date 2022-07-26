@@ -39,7 +39,7 @@ app.start();
 // console.log("get all products of category 2", allProductsOfCategory_2);
 
 
-// //Test des méthode setProp des modèles (Category, Product) + méthode update de DataManager
+// //Test des méthodes setProp des modèles (Category, Product) + méthode update de DataManager
 // category_2.setProp("title", "un nouveau titre")
 //     .setProp("description", "une nouvelle description")
 
