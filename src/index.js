@@ -8,7 +8,7 @@ import { Category } from "./models/category.model";
 import { Product } from "./models/product.model";
 
 const dataManager = new DataManager(['category', 'product']);
-// // dataManager.initDataStorage();
+// dataManager.initDataStorage();
 
 // //Tests des constructeurs des classes models
 // const categoryJsonData = {"id":1,"title":"vestibulum ante","description":"Mauris ullamcorper purus sit amet nulla.","image":"https://picsum.photos/1001/600/400"};
@@ -55,10 +55,21 @@ const dataManager = new DataManager(['category', 'product']);
 // dataManager.insert(newProduct);
 
 
-// //Tests de la méthode delete de DataManager
+// //Tests de la méthode delete hard de DataManager
 // const product_181 = dataManager.getOne("product", 181);
 // dataManager.delete(product_181);
 // const category_10 = dataManager.getOne("category", 10);
 // dataManager.delete(category_10);
+
+// //Tests de la méthode delete soft de DataManager
+// const product_1 = dataManager.getOne("product", 1);
+// dataManager.delete(product_1);
+// const category_1 = dataManager.getOne("category", 1);
+// dataManager.delete(category_1);
+
+console.log(dataManager.getAll("product"));
+console.log(dataManager.getAll("category"));
+console.log(dataManager.getDeletedOnly("product"));
+console.log(dataManager.getDeletedOnly("category"));
 
 console.log();
