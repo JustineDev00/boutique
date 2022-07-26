@@ -1,3 +1,3 @@
 # boutique
 
-E4 avec create et delete dans DataManager 
+E4 avec create et delete (hard) dans DataManager 
