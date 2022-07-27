@@ -1,5 +1,6 @@
 import { Error404Controller } from "./controllers/error404.controller";
 import { HomeController } from "./controllers/home.controller";
+import { AdminController } from "./controllers/admin.controller";
 
 export class App {
 
@@ -48,7 +49,9 @@ export class App {
             actionName = "index";
         }
         let content = controller[actionName](routeItems);
-        document.getElementById("root").innerHTML = content;
+        // document.getElementById("root").innerHTML = content;
+        document.getElementById("root").innerHTML = "";
+        document.getElementById("root").append(content);
         //
         for(const link of this.spaLinks){
             link.onclick = (evt) => {
@@ -63,13 +66,9 @@ export class App {
 
     getController = (name) => {
         switch (name) {
-            case "home":
-                return new HomeController();
-                break;
-        
-            default:
-                return new Error404Controller();
-                break;
+            case "home": return new HomeController();
+            case "admin": return new AdminController();
+            default: return new Error404Controller();
         }
     }
 

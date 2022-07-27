@@ -5,6 +5,6 @@ export class Error404Controller{
     }
 
     index = (params) => {
-        return "Error404Controller.index"
+        return "Erreur 404, cette page n'existe pas !"
     }
 }

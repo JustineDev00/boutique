@@ -5,10 +5,10 @@ export class HomeController{
     }
 
     index = (params) => {
-        return "HomeController.index";
+        return "Accueil";
     }
 
     contact = (params) => {
-        return "HomeController.contact";
+        return "Contactez nous";
     }
 }
