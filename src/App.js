@@ -1,3 +1,6 @@
+import { Error404Controller } from "./controllers/error404.controller";
+import { HomeController } from "./controllers/home.controller";
+
 export class App {
 
     spaLinks = document.getElementsByClassName('spa-link');
@@ -36,7 +39,17 @@ export class App {
     navigateToRoute = (route) => { //permet d'afficher le contenu de la page demandée
         console.log("navigateToRoute", route);
         //Prochaine étape : aller chercher un controller ...
-
+        const routeItems = route.replace(/^\//, "").replace(/\/$/, "").split('/');
+        const controllerName = routeItems?.shift() || "home";
+        let controller = this.getController(controllerName);
+        let actionName = routeItems?.shift() || "index";
+        if (!controller.hasOwnProperty(actionName)) {
+            controller = new Error404Controller();
+            actionName = "index";
+        }
+        let content = controller[actionName](routeItems);
+        document.getElementById("root").innerHTML = content;
+        //
         for(const link of this.spaLinks){
             link.onclick = (evt) => {
                 evt.preventDefault();
@@ -45,6 +58,18 @@ export class App {
                 this.pushRouteToHistory(href);
                 this.navigateToRoute(href);
             }
+        }
+    }
+
+    getController = (name) => {
+        switch (name) {
+            case "home":
+                return new HomeController();
+                break;
+        
+            default:
+                return new Error404Controller();
+                break;
         }
     }
 
