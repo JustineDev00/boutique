@@ -1,5 +1,5 @@
 import { DataManager } from "../helpers/dataManager.helper";
-import { HomeViewIndex } from "../views/admin/categories.view.js";
+import { AdminCategoriesView } from "../views/admin/categories.view.js";
 
 export class AdminController{
     
@@ -14,7 +14,7 @@ export class AdminController{
     categories = (params) => {
         const dm = new DataManager();
         const categories = dm.getAll("category");
-        const view = new HomeViewIndex({categories})
+        const view = new AdminCategoriesView({categories})
         const content = view.render();
         return content;
     }

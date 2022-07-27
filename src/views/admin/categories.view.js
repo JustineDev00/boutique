@@ -1,15 +1,15 @@
 import sheet from './categories.css' assert { type: 'css' };
 document.adoptedStyleSheets = [sheet];
 
-export class HomeViewIndex {
+export class AdminCategoriesView {
 
   models = null;
   constructor(models) {
     this.models = models;
   }
 
-  click = (evt) => {
-    console.log("row clicked", evt);
+  click = (tr, evt) => {
+    console.log("row clicked for category", evt.currentTarget.dataset.id, tr.dataset.id);
   }
 
   render = () => {
@@ -50,7 +50,7 @@ export class HomeViewIndex {
     viewElement.innerHTML = viewHtml;
 
     viewElement.querySelectorAll('tbody tr').forEach(tr => {
-        tr.onclick = this.click.bind(tr);
+        tr.onclick = this.click.bind(this,tr);
     })
 
     return viewElement;
