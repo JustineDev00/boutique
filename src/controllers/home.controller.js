@@ -5,6 +5,10 @@ export class HomeController{
     }
 
     index = (params) => {
-        return "HomeController.index"
+        return "HomeController.index";
+    }
+
+    contact = (params) => {
+        return "HomeController.contact";
     }
 }

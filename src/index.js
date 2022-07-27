@@ -67,9 +67,9 @@ const dataManager = new DataManager(['category', 'product']);
 // const category_1 = dataManager.getOne("category", 1);
 // dataManager.delete(category_1);
 
-console.log(dataManager.getAll("product"));
-console.log(dataManager.getAll("category"));
-console.log(dataManager.getDeletedOnly("product"));
-console.log(dataManager.getDeletedOnly("category"));
+// console.log(dataManager.getAll("product"));
+// console.log(dataManager.getAll("category"));
+// console.log(dataManager.getDeletedOnly("product"));
+// console.log(dataManager.getDeletedOnly("category"));
 
-console.log();
+// console.log();
