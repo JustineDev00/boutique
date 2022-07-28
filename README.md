@@ -11,3 +11,7 @@ Exercice JS POO Cat Prod
 étape 8 : réaliser une page qui présente les produits correspondant à une catégorie TESTER en DEBUG !
 
 E0 - Structure du projet
+E4 avec le soft delete dans DataManager
+=> modification des fichiers json
+=> modification des méthodes getAll et getOne (pour ne récupérer que les lignes non deleted)
+=> ajout de la méthode getDeletedOnly dans DataManager
