@@ -28,12 +28,12 @@ export class AdminController{
     }
 
     category = async (params) => {
-        const id = params.id;
-        return "category detail";
+        const id = params[0];
+        return "category detail " + id;
     }
 
     product = async (params) => {
-        const id = params.id;
-        return "product detail";
+        const id = params[0];
+        return "product detail " + id;
     }
 }
