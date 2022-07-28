@@ -1,5 +1,6 @@
 import { DataManager } from "../helpers/dataManager.helper";
-import { AdminCategoriesView } from "../views/admin/categories.view.js";
+// import { AdminProductsView } from "../views/admin/products.view.js";
+// import { AdminCategoriesView } from "../views/admin/categories.view.js";
 
 export class AdminController{
     
@@ -7,15 +8,32 @@ export class AdminController{
         console.log(this.constructor.name);
     }
 
-    products = (params) => {
-        return "Liste des produits";
-    }
-
-    categories = (params) => {
+    products = async (params) => {
         const dm = new DataManager();
-        const categories = dm.getAll("category");
-        const view = new AdminCategoriesView({categories})
+        const products = dm.getAll("product");
+        const {AdminProductsView} = await import('../views/admin/products.view.js');
+        const view = new AdminProductsView({products})
         const content = view.render();
         return content;
+    }
+
+    categories = async (params) => {
+        const dm = new DataManager();
+        const categories = dm.getAll("category");
+        const product_1 = dm.getOne("product", 1);
+        const {AdminCategoriesView} = await import('../views/admin/categories.view.js');
+        const view = new AdminCategoriesView({categories, product_1})
+        const content = view.render();
+        return content;
+    }
+
+    category = async (params) => {
+        const id = params.id;
+        return "category detail";
+    }
+
+    product = async (params) => {
+        const id = params.id;
+        return "product detail";
     }
 }

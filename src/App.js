@@ -37,7 +37,7 @@ export class App {
         }, null, route);
     }
 
-    navigateToRoute = (route) => { //permet d'afficher le contenu de la page demandée
+    navigateToRoute = async (route) => { //permet d'afficher le contenu de la page demandée
         console.log("navigateToRoute", route);
         //Prochaine étape : aller chercher un controller ...
         const routeItems = route.replace(/^\//, "").replace(/\/$/, "").split('/');
@@ -48,7 +48,7 @@ export class App {
             controller = new Error404Controller();
             actionName = "index";
         }
-        let content = controller[actionName](routeItems);
+        const content = await controller[actionName](routeItems);
         // document.getElementById("root").innerHTML = content;
         document.getElementById("root").innerHTML = "";
         document.getElementById("root").append(content);
