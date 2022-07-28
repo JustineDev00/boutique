@@ -34,6 +34,15 @@ export class AdminController{
 
     product = async (params) => {
         const id = params[0];
-        return "product detail " + id;
+        const dm = new DataManager();
+        const product = dm.getOne("product", id);
+        const categories = dm.getAll("category");
+        const {AdminProductDetailView} = await import('../views/admin/productDetail.view.js');
+        const view = new AdminProductDetailView({product, categories})
+        const content = view.render();
+        return content;
     }
+
+
+
 }

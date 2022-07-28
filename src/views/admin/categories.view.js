@@ -18,14 +18,14 @@ export class AdminCategoriesView {
 
   click = (tr, test, evt) => {
     console.log("row clicked for category id : ", evt.currentTarget.dataset.id, tr.dataset.id);
-    // /admin/category/1
+    // /admin/category/:id
   }
 
   render = () => {
     const { categories, product_1 } = this.models;
     const liste = categories.map((category) => {
         return `
-            <tr data-id="${category.id}">
+            <tr data-id="${category.id}" class="spa-link" data-route="/admin/category/${category.id}">
                 <th scope="row" hidden>${category.id}</th>
                 <td>${category.title}</td>
                 <td>${category.description}</td>
@@ -36,7 +36,6 @@ export class AdminCategoriesView {
     }).join('');
 
     const viewHtml = `
-
         <div class="container">
             <h4>Liste des catégories</h4>
             <table class="table">

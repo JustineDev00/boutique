@@ -1,6 +1,8 @@
 // import sheet from './products.css' assert { type: 'css' };
 // document.adoptedStyleSheets = [sheet];
 
+import { App } from '../../App';
+
 export class AdminProductsView {
 
   models = null;
@@ -19,7 +21,8 @@ export class AdminProductsView {
 
   click = (tr, evt) => {
     console.log("row clicked for product id : ", evt.currentTarget.dataset.id, tr.dataset.id);
-    // /admin/product/1
+    App.navigate('/admin/product/'+ tr.dataset.id)
+    // /admin/product/:id
   }
 
   render = () => {
@@ -38,7 +41,6 @@ export class AdminProductsView {
     }).join('');
 
     const viewHtml = `
-
         <div class="container">
             <h4>Liste des produits</h4>
             <table class="table">

@@ -1,7 +1,7 @@
 import {App} from './App.js';
 
-const app = new App();
-app.start();
+// const app = new App();
+App.start();
 
 import { DataManager } from "./helpers/dataManager.helper";
 import { Category } from "./models/category.model";
